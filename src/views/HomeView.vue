@@ -1,10 +1,10 @@
 <template>
   <div class="home">
-      <div>
-        <button class="btn" @click="decreaseCounter">-</button>
-        <span class="counter">{{ counter }}</span>
-        <button class="btn" @click="increaseCounter">+</button>
-      </div>
+    <div>
+      <button class="btn" @click="decreaseCounter">-</button>
+      <span class="counter">{{ counter }}</span>
+      <button class="btn" @click="increaseCounter">+</button>
+    </div>
   </div>
 </template>
 
@@ -64,12 +64,14 @@ export default {
 </script> -->
 
 <style>
-  .home{
-    text-align: center;
-    padding: 20px;
-  }
-  .btn, .counter{
-    font-size: 40px;
-    margin: 10px;
-  }
+.home {
+  text-align: center;
+  padding: 20px;
+}
+
+.btn,
+.counter {
+  font-size: 40px;
+  margin: 10px;
+}
 </style>
