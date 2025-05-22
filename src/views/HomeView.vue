@@ -6,6 +6,11 @@
       <span class="counter">{{ counter }}</span>
       <button class="btn" @click="increaseCounter">+</button>
     </div>
+
+    <div class="edit">
+      <h4>Edit Counter Title:</h4>
+      <input type="text" v-model="counterTitle"/>
+    </div>
   </div>
 </template>
 
@@ -23,49 +28,6 @@ const decreaseCounter = () => {
 }
 </script>
 
-<!-- Composition API - script return -->
-<!-- <script>
-  import { ref } from 'vue';
-
-export default {
-  setup() {
-    const counter = ref(0);
-    const increaseCounter = () => {
-      counter.value++;
-    }
-    const decreaseCounter = () => {
-      if (counter.value !== 0) counter.value--;
-    }
-
-    return {
-      counter,
-      increaseCounter,
-      decreaseCounter,
-    }
-  }
-}
-</script> -->
-
-<!-- Options API -->
-<!-- <script>
-  export default {
-    data() {
-      return {
-        counter: 0,
-      }
-    },
-    methods: {
-      increaseCounter() {
-        this.counter++;
-      },
-      decreaseCounter() {
-        if(this.counter !== 0)
-          this.counter--;
-      }
-    }
-  }
-</script> -->
-
 <style>
 .home {
   text-align: center;
@@ -76,5 +38,8 @@ export default {
 .counter {
   font-size: 40px;
   margin: 10px;
+}
+.edit {
+  margin-top: 60px;
 }
 </style>
