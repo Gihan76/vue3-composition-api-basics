@@ -20,7 +20,7 @@
 </template>
 
 <script setup>
-import { reactive, computed, watch } from 'vue';
+import { reactive, computed, watch, onBeforeMount, onMounted, onBeforeUnmount, onUnmounted } from 'vue';
 
 const appTitle = 'My Amazing Counter App';
 const counterData = reactive({
@@ -48,6 +48,19 @@ const increaseCounter = (amount, event) => {
 const decreaseCounter = (amount) => {
   counterData.count -= amount;
 }
+
+onBeforeMount(() => {
+  console.log('Component is about to be mounted');
+})
+onMounted(() => {
+  console.log('Component has been mounted');
+})
+onBeforeUnmount(() => {
+  console.log('Component is about to be unmounted');
+})
+onUnmounted(() => {
+  console.log('Component has been unmounted');
+})
 </script>
 
 <!-- <script>
@@ -67,6 +80,14 @@ export default {
     count(newCount, oldCount) {
       if (newCount == 20) alert('Count is 20');
     }
+  },
+  mounted() {
+    // do stuff when component is loaded
+    console.log('Component mounted');
+  },
+  unmounted() {
+    // do stuff when component is destroyed
+    console.log('Component unmounted');
   },
 }
 </script> -->
