@@ -20,7 +20,7 @@
 </template>
 
 <script setup>
-import { reactive, computed } from 'vue';
+import { reactive, computed, watch } from 'vue';
 
 const appTitle = 'My Amazing Counter App';
 const counterData = reactive({
@@ -28,6 +28,16 @@ const counterData = reactive({
   title: 'My Counter',
 });
 
+// watch - allows to essentially watch a reactive 
+// data property and then do something whenever 
+// it changes
+watch(() => counterData.count, (newCount, oldCount) => {
+  if(newCount == 20) alert('Count is 20');
+})
+
+// computed - properties which are usually generated 
+// based on reactive data which are cached and only 
+// updated when their dependencies change.
 const oddOrEven = computed(() => {
   return counterData.count % 2 === 0 ? 'even' : 'odd';
 });
@@ -42,12 +52,22 @@ const decreaseCounter = (amount) => {
 
 <!-- <script>
 export default {
+  data() {
+    return {
+      count: 0,
+    }
+  },
   computed: {
     myComputedProperty() {
       // perform logic based on a data property
       return 'my result';
     }
-  }
+  },
+  watch: {
+    count(newCount, oldCount) {
+      if (newCount == 20) alert('Count is 20');
+    }
+  },
 }
 </script> -->
 
