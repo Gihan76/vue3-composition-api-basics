@@ -20,7 +20,7 @@
 </template>
 
 <script setup>
-import { reactive, computed, watch, onBeforeMount, onMounted, onBeforeUnmount, onUnmounted } from 'vue';
+import { reactive, computed, watch, onBeforeMount, onMounted, onBeforeUnmount, onUnmounted, onActivated, onDeactivated } from 'vue';
 
 const appTitle = 'My Amazing Counter App';
 const counterData = reactive({
@@ -61,6 +61,13 @@ onBeforeUnmount(() => {
 onUnmounted(() => {
   console.log('Component has been unmounted');
 })
+onActivated(() => {
+  console.log('Component has been activated');
+})
+onDeactivated(() => {
+  console.log('Component has been deactivated');
+})
+
 </script>
 
 <!-- <script>
