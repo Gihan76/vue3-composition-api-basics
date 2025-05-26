@@ -20,9 +20,14 @@
 </template>
 
 <script setup>
-import { reactive, computed, watch, onBeforeMount, onMounted, onBeforeUnmount, onUnmounted, onActivated, onDeactivated, onBeforeUpdate, onUpdated } from 'vue';
+import { reactive, computed, watch, onMounted } from 'vue';
 
 const appTitle = 'My Amazing Counter App';
+
+onMounted(() => {
+  console.log('Do stuff related to app title');
+})
+
 const counterData = reactive({
   count: 0,
   title: 'My Counter',
@@ -49,30 +54,9 @@ const decreaseCounter = (amount) => {
   counterData.count -= amount;
 }
 
-onBeforeMount(() => {
-  console.log('Component is about to be mounted');
-})
 onMounted(() => {
-  console.log('Component has been mounted');
+  console.log('Do stuff related to counter');
 })
-onBeforeUnmount(() => {
-  console.log('Component is about to be unmounted');
-})
-onUnmounted(() => {
-  console.log('Component has been unmounted');
-})
-onActivated(() => {
-  console.log('Component has been activated');
-})
-onDeactivated(() => {
-  console.log('Component has been deactivated');
-})
-onBeforeUpdate(() => {
-  console.log('triggered just before the template is updated');
-})
-onUpdated(() => {
-  console.log('triggered when the template has been updated');
-});
 
 </script>
 
