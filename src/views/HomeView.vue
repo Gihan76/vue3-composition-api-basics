@@ -21,6 +21,7 @@
 
 <script setup>
 import { reactive, computed, watch, onMounted } from 'vue';
+import { vAutofocus } from '@/directives/vAutofocus';
 
 const appTitle = 'My Amazing Counter App';
 
@@ -57,13 +58,6 @@ const decreaseCounter = (amount) => {
 onMounted(() => {
   console.log('Do stuff related to counter');
 })
-
-// custom directive
-const vAutofocus = { // will turn into "v-autofocus" in the template
-  mounted: (el) => {
-    el.focus();
-  }
- }
 
 </script>
 
