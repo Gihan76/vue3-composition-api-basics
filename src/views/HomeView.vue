@@ -14,7 +14,7 @@
 
     <div class="edit">
       <h4>Edit Counter Title:</h4>
-      <input type="text" v-model="counterData.title" v-autoFocus/>
+      <input type="text" v-model="counterData.title" v-autofocus/>
     </div>
   </div>
 </template>
@@ -58,9 +58,16 @@ onMounted(() => {
   console.log('Do stuff related to counter');
 })
 
+// custom directive
+const vAutofocus = { // will turn into "v-autofocus" in the template
+  mounted: (el) => {
+    el.focus();
+  }
+ }
+
 </script>
 
-<script>
+<!-- <script>
 export default {
   data() {
     return {
@@ -94,7 +101,7 @@ export default {
     }
   }
 }
-</script>
+</script> -->
 
 <style>
 .home {
