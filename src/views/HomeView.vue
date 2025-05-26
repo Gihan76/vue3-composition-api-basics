@@ -14,7 +14,7 @@
 
     <div class="edit">
       <h4>Edit Counter Title:</h4>
-      <input type="text" v-model="counterData.title"/>
+      <input type="text" v-model="counterData.title" v-autoFocus/>
     </div>
   </div>
 </template>
@@ -60,7 +60,7 @@ onMounted(() => {
 
 </script>
 
-<!-- <script>
+<script>
 export default {
   data() {
     return {
@@ -86,8 +86,15 @@ export default {
     // do stuff when component is destroyed
     console.log('Component unmounted');
   },
+  directives: {
+    autoFocus: {
+      mounted(el) {
+        el.focus();
+      }
+    }
+  }
 }
-</script> -->
+</script>
 
 <style>
 .home {
