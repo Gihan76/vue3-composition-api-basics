@@ -11,6 +11,13 @@
     </teleport>
 </template>
 
+<script setup>
+    import { useSlots } from 'vue';
+
+    const slots = useSlots();
+    console.log("slot title ->", slots.title()); // accessing slot properties 
+</script>
+
 <style>
 .modal {
     background: red;
