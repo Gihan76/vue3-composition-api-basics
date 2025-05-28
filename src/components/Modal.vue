@@ -6,7 +6,7 @@
             </h1>
             <!-- specify slot outlet from parent -->
             <slot /> <!-- or <slot></slot> -->
-            <button @click="$emit('hideModal')">Hide modal</button>
+            <button @click="handleHideModal">Hide modal</button>
         </div>
     </teleport>
 </template>
@@ -23,6 +23,11 @@
 
     // define emits
     const emit = defineEmits(['hideModal']);
+    
+    // handle hide modal
+    const handleHideModal = () => {
+        emit('hideModal')
+    }
 </script>
 
 <!-- options api -->
