@@ -2,12 +2,8 @@
     <teleport to=".modals-container">
         <div class="modal">
             <h1>This is a modal</h1>
-            <p>
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Expedita maiores vel facere laborum, quia
-                quibusdam. Voluptatibus, eaque! Pariatur, esse neque nulla suscipit, reprehenderit cupiditate nisi
-                unde
-                ad dolore expedita magnam!
-            </p>
+            <!-- specify slot outlet from parent -->
+            <slot /> <!-- / <slot></slot> -->
             <button>Hide modal</button>
         </div>
     </teleport>
