@@ -5,6 +5,7 @@
 
         <!-- render child component based on condition -->
         <Modal v-if="showModal">
+            <template v-slot:title>My new title</template> <!-- or <template #title>My new title</template> -->
             <!-- provide slot content -->
             <p>
                 Lorem ipsum dolor sit amet consectetur adipisicing elit. Expedita maiores vel facere laborum, quia quibusdam. Voluptatibus, eaque! Pariatur, esse neque nulla suscipit, reprehenderit cupiditate nisi unde ad dolore expedita magnam!

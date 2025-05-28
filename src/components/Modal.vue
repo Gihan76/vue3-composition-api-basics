@@ -1,9 +1,11 @@
 <template>
     <teleport to=".modals-container">
         <div class="modal">
-            <h1>This is a modal</h1>
+            <h1>
+                <slot name="title"/>
+            </h1>
             <!-- specify slot outlet from parent -->
-            <slot /> <!-- / <slot></slot> -->
+            <slot /> <!-- or <slot></slot> -->
             <button>Hide modal</button>
         </div>
     </teleport>
