@@ -2,7 +2,7 @@
     <teleport to=".modals-container">
         <div class="modal">
             <h1>
-                <slot name="title"/>
+                {{  title }} <!-- or {{ props.title }} if using options api -->
             </h1>
             <!-- specify slot outlet from parent -->
             <slot /> <!-- or <slot></slot> -->
@@ -11,12 +11,29 @@
     </teleport>
 </template>
 
+<!-- composition api -->
 <script setup>
-    import { useSlots } from 'vue';
+    const props = defineProps({
+        title: {
+            type: String,
+            default: 'No Title Specified'
+        }
+    })
 
-    const slots = useSlots();
-    console.log("slot title ->", slots.title()); // accessing slot properties 
+    console.log('props:',props.title);
 </script>
+
+<!-- options api -->
+<!-- <script>
+    export default {
+        props: {
+            title: {
+                type: String,
+                default: 'No Title Specified'
+            }
+        }
+    }
+</script> -->
 
 <style>
 .modal {
