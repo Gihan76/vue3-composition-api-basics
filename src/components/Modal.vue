@@ -6,26 +6,29 @@
             </h1>
             <!-- specify slot outlet from parent -->
             <slot /> <!-- or <slot></slot> -->
-            <button>Hide modal</button>
+            <button @click="$emit('hideModal')">Hide modal</button>
         </div>
     </teleport>
 </template>
 
 <!-- composition api -->
 <script setup>
+    // define props 
     const props = defineProps({
         title: {
             type: String,
             default: 'No Title Specified'
         }
-    })
+    });
 
-    console.log('props:',props.title);
+    // define emits
+    const emit = defineEmits(['hideModal']);
 </script>
 
 <!-- options api -->
 <!-- <script>
     export default {
+        emits: ['hideModeal'],
         props: {
             title: {
                 type: String,

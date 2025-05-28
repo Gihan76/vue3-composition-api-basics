@@ -4,7 +4,7 @@
         <button @click="showModal = true">Show modal</button>
 
         <!-- render child component based on condition -->
-        <Modal v-if="showModal" title="My Modal Title (via prop)">
+        <Modal v-if="showModal" title="My Modal Title (via prop)" @hide-modal="showModal = false">
             <!-- <template v-slot:title>My new title</template> or <template #title>My new title</template> -->
             <!-- provide slot content -->
             <p>
