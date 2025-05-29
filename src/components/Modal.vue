@@ -1,12 +1,15 @@
 <template>
     <teleport to=".modals-container">
-        <div class="modal">
+        <div
+            v-if="modelValue"
+            class="modal"
+        >
             <h1>
                 {{  title }} <!-- or {{ props.title }} if using options api -->
             </h1>
             <!-- specify slot outlet from parent -->
             <slot /> <!-- or <slot></slot> -->
-            <button @click="handleHideModal">Hide modal</button>
+            <button @click="$emit('update:modelValue',false)">Hide modal</button>
         </div>
     </teleport>
 </template>
@@ -15,6 +18,10 @@
 <script setup>
     // define props 
     const props = defineProps({
+        modelValue: {
+            type: Boolean,
+            default: false,
+        },
         title: {
             type: String,
             default: 'No Title Specified'
@@ -22,12 +29,12 @@
     });
 
     // define emits
-    const emit = defineEmits(['hideModal']);
+    const emit = defineEmits(['update:modelValue','hideModal']);
     
     // handle hide modal
-    const handleHideModal = () => {
-        emit('hideModal')
-    }
+    // const handleHideModal = () => {
+    //     emit('update:modelValue', false); // update modelValue to false
+    // }
 </script>
 
 <!-- options api -->
