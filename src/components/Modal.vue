@@ -11,7 +11,7 @@
             <slot /> <!-- or <slot></slot> -->
             <button @click="$emit('update:modelValue',false)">Hide modal</button>
             <div>
-                Username is {{  userData.userName }}
+                Username is: {{  userData?.userName }}
             </div>
         </div>
     </teleport>
@@ -19,6 +19,8 @@
 
 <!-- composition api -->
 <script setup>
+    // imports
+    import { inject } from 'vue';
     // define props 
     const props = defineProps({
         modelValue: {
@@ -29,14 +31,13 @@
             type: String,
             default: 'No Title Specified'
         },
-        userData: {
-            type: Object,
-        }
     });
 
     // define emits
     const emit = defineEmits(['update:modelValue','hideModal']);
     
+    // inject user data
+    const userData = inject('userData');
 </script>
 
 <style>

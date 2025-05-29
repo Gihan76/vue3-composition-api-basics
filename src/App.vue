@@ -9,18 +9,20 @@
   </nav>
 
 
-  <RouterView :userData="userData"/>
+  <RouterView />
 </template>
 
 <script setup>
 // imports
 import { RouterLink, RouterView } from 'vue-router';
-import { reactive } from 'vue';
+import { reactive, provide } from 'vue';
 // user data
 const userData = reactive({
   name: 'Gihan',
   userName: 'gihanT',
 })
+
+provide('userData', userData); // provide user data to child components
 </script>
 
 <style scoped>
