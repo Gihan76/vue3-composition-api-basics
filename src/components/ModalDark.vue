@@ -2,7 +2,7 @@
     <teleport to=".modals-container">
         <div
             v-if="modelValue"
-            class="modal"
+            class="modal-dark"
         >
             <h1>
                 {{  title }} <!-- or {{ props.title }} if using options api -->
@@ -34,9 +34,9 @@
 </script>
 
 <style>
-.modal {
-    background: beige;
-    color: black;
+.modal-dark {
+    background: #333;
+    color: white;
     padding: 10px;
     position: absolute;
     left: 0;
