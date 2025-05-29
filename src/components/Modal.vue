@@ -10,6 +10,9 @@
             <!-- specify slot outlet from parent -->
             <slot /> <!-- or <slot></slot> -->
             <button @click="$emit('update:modelValue',false)">Hide modal</button>
+            <div>
+                Username is {{  userData.userName }}
+            </div>
         </div>
     </teleport>
 </template>
@@ -25,6 +28,9 @@
         title: {
             type: String,
             default: 'No Title Specified'
+        },
+        userData: {
+            type: Object,
         }
     });
 
